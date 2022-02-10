@@ -46,6 +46,9 @@ h1 {
 #project02 h2 {
 	color: #75c695;
 }
+#project02.animate {
+	background-color: #e9f0f2;
+}
 #project03 h2 {
 	color: #f5876f;
 }

@@ -3,21 +3,41 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./App.css";
-
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
 	useEffect(() => {
-		gsap.to("#intro img", {
-			opacity: 0,
+		// gsap.to("#intro img", {
+		// 	opacity: 0,
+		// 	scrollTrigger: {
+		// 		trigger: "#intro",
+		// 		start: "top top",
+		// 		end: "bottom center",
+		// 		scrub: 1,
+		// 		markers: true,
+		// 	},
+		// });
+
+		gsap.set("#project02", {
+			yoyo: true,
 			scrollTrigger: {
-				trigger: "#intro",
-				start: "top top",
-				end: "bottom center",
-				scrub: 1,
+				trigger: "#project02",
+				start: "top bottom-=10%",
+				end: "bottom center-=10%",
+				toggleClass: "animate",
 				markers: true,
 			},
 		});
+
+		// gsap.set("#project02", {
+		// 	ScrollTrigger: {
+		// 		trigger: "#project02",
+		// 		start: "top top",
+		// 		end: "bottom center",
+		// 		toggleClass: "active",
+		// 		markers: true,
+		// 	},
+		// });
 	}, []);
 
 	return (
@@ -37,7 +57,7 @@ function App() {
 				<div id="project01" className="project">
 					<img src={require("./img/img_project01-icon.svg").default} alt="" />
 					<h2>Project Title</h2>
-					<p class="info">
+					<p className="info">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
 						dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed.
 					</p>
