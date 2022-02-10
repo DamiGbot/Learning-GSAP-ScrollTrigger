@@ -7,16 +7,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
 	useEffect(() => {
-		// gsap.to("#intro img", {
-		// 	opacity: 0,
-		// 	scrollTrigger: {
-		// 		trigger: "#intro",
-		// 		start: "top top",
-		// 		end: "bottom center",
-		// 		scrub: 1,
-		// 		markers: true,
-		// 	},
-		// });
+		gsap.to("#intro img", {
+			opacity: 0,
+			scrollTrigger: {
+				trigger: "#intro",
+				start: "top top",
+				end: "bottom center",
+				scrub: 1,
+			},
+		});
 
 		gsap.set("#project02", {
 			yoyo: true,
@@ -25,19 +24,21 @@ function App() {
 				start: "top bottom-=10%",
 				end: "bottom center-=10%",
 				toggleClass: "animate",
-				markers: true,
 			},
 		});
 
-		// gsap.set("#project02", {
-		// 	ScrollTrigger: {
-		// 		trigger: "#project02",
-		// 		start: "top top",
-		// 		end: "bottom center",
-		// 		toggleClass: "active",
-		// 		markers: true,
-		// 	},
-		// });
+		const parallaxTL = gsap.timeline({
+			ease: "none",
+			scrollTrigger: {
+				trigger: ".bcg-parallax",
+				start: "top bottom",
+				scrub: true,
+			},
+		});
+
+		parallaxTL
+			.from(".content-wrapper", { autoAlpha: 0, duration: 0.4 }, 0.4)
+			.from(".bcg", { duration: 2, y: "-30%" }, 0);
 	}, []);
 
 	return (
